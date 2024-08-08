@@ -1,0 +1,36 @@
+//creating react application
+npx create-react-app
+
+//installing mui packages
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+
+//installing tailwind css
+npm install -D tailwindcss
+
+//copy configuration code and paste it into tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+//import in index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//install some libraries
+npm i heroicons
+
+//create all folder customer/components/Navigation/Navigation.jsx
+paste the store navigation react code from (https://tailwindui.com/components)
+in the navigation.jsx
+change the function name example to Navigation in Navigation.jsx
+
+
