@@ -1,5 +1,5 @@
 import React from "react";
-import MensKurta from "../../../Data/MensKurta";
+import MensKurta from "../../../Data/Mens/MensKurta";
 import Product from "../Product/Product";
 import { Icon, IconButton } from "@mui/material";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";

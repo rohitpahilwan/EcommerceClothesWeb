@@ -3,7 +3,8 @@ import AliceCarousel from "react-alice-carousel";
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { Button } from "@headlessui/react";
-import { MensKurta } from "../../../Data/MensKurta";
+import { MensKurta } from "../../../Data/Mens/MensKurta";
+import MensShirt from "../../../Data/Mens/MensShirt";
 
 const HomeSectionCarousel = ({ data, sectionName }) => {
   const responsive = {
@@ -18,9 +19,9 @@ const HomeSectionCarousel = ({ data, sectionName }) => {
 
   const slideNext = () => setActiveIndex(activeIndex + 1);
   const syncActiveIndex = ({ item }) => setActiveIndex(item);
-  const items = MensKurta.slice(0, 10).map((item) => (
-    <HomeSectionCard product={item} />
-  ));
+  const items = data
+    .slice(0, 10)
+    .map((item) => <HomeSectionCard product={item} />);
   return (
     <div className="p-5 relative">
       <h2 className="text-2xl font-extrabold text-gray-800 py-5">

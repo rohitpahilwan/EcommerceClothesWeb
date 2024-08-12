@@ -19,7 +19,7 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import MensKurta from "../../../Data/MensKurta";
+import MensKurta from "../../../Data/Mens/MensKurta";
 import ProductCard from "./ProductCard";
 import { filters, SingleFilter } from "./Filter";
 import { FormControlLabel, Radio } from "@mui/material";

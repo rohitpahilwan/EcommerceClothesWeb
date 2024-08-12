@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button, Radio, RadioGroup } from "@headlessui/react";
 import { Box, Grid, LinearProgress, Rating } from "@mui/material";
 import ProductReviewCard from "./ProductReviewCard";
-import MensKurta from "../../../Data/MensKurta";
+import MensKurta from "../../../Data/Mens/MensKurta";
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import { useNavigate } from "react-router-dom";
 

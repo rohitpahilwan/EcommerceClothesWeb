@@ -1,7 +1,13 @@
 import React from "react";
 import Maincarousel from "../../components/Homcarousel/Maincarousel";
 import HomeSectionCarousel from "../../components/HomeSectionCarousel/HomeSectionCarousel";
-import MensKurta from "../../../Data/MensKurta";
+import MensKurta from "../../../Data/Mens/MensKurta";
+import MensShirt from "../../../Data/Mens/MensShirt";
+import MensJeans from "../../../Data/Mens/MensJeans";
+import WomenTop from "../../../Data/Women/WomenTop";
+import WomenJeans from "../../../Data/Women/WomenJeans";
+import WomenDress from "../../../Data/Women/WomenDress";
+import Saree from "../../../Data/Women/Sarees";
 
 export default function HomePage() {
   return (
@@ -15,18 +21,33 @@ export default function HomePage() {
         />
 
         <HomeSectionCarousel
-          data={MensKurta}
+          data={MensShirt}
           sectionName={"Men's Shirts"}
           autoPlayInterval={2000}
         />
         <HomeSectionCarousel
-          data={MensKurta}
-          sectionName={"Women's Saree"}
+          data={MensJeans}
+          sectionName={"Men's Jeans"}
           autoPlayInterval={2000}
         />
         <HomeSectionCarousel
-          data={MensKurta}
+          data={WomenTop}
+          sectionName={"Women's Top"}
+          autoPlayInterval={2000}
+        />
+        <HomeSectionCarousel
+          data={WomenJeans}
+          sectionName={"Women's Jeans"}
+          autoPlayInterval={2000}
+        />
+        <HomeSectionCarousel
+          data={WomenDress}
           sectionName={"Women's Dress"}
+          autoPlayInterval={2000}
+        />
+        <HomeSectionCarousel
+          data={Saree}
+          sectionName={"Women's Sarees"}
           autoPlayInterval={2000}
         />
       </div>
