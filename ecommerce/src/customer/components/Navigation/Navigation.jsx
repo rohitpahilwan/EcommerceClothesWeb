@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -7,11 +7,7 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
-  Tab,
-  TabGroup,
-  TabList,
-  TabPanel,
-  TabPanels,
+  Menu,
 } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -52,10 +48,8 @@ const navigation = {
             { name: "Tops", href: "/women/tops" },
             { name: "Dresses", href: "/women/dresses" },
             { name: "Pants", href: "/women/pants" },
-            // Add more items as needed
           ],
         },
-        // Add more sections as needed
       ],
     },
     {
@@ -86,10 +80,8 @@ const navigation = {
           items: [
             { name: "Tops", href: "/men/tops" },
             { name: "Pants", href: "/men/pants" },
-            // Add more items as needed
           ],
         },
-        // Add more sections as needed
       ],
     },
   ],
@@ -101,7 +93,25 @@ const navigation = {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState({
+    men: true,
+    women: true,
+  });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!selectedCategories.men && !selectedCategories.women) {
+      navigate("/");
+    }
+  }, [selectedCategories, navigate]);
+
+  const handleCategoryToggle = (categoryId) => {
+    setSelectedCategories((prev) => ({
+      ...prev,
+      [categoryId]: !prev[categoryId],
+    }));
+    navigate("/"); // Navigate to home page when category is toggled
+  };
 
   return (
     <div className="bg-white">
@@ -115,19 +125,21 @@ export default function Navigation() {
       </Dialog>
 
       <header className="relative bg-white">
-        {/* Header content */}
-
         <nav
           aria-label="Top"
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
           <div className="border-b border-gray-200">
-            <div className="flex h-16 items-center">
+            <div className="flex h-16 items-center justify-between">
+              {/* Left side: Categories */}
               <PopoverGroup className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
                   {navigation.categories.map((category) => (
                     <Popover key={category.name} className="flex">
-                      <PopoverButton className="relative flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                      <PopoverButton
+                        className="relative flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900"
+                        onClick={() => handleCategoryToggle(category.id)}
+                      >
                         {category.name}
                         <span className="absolute inset-x-0 -bottom-px h-0.5 w-full bg-transparent transition-all duration-300 ease-in-out hover:bg-indigo-600"></span>
                       </PopoverButton>
@@ -203,6 +215,74 @@ export default function Navigation() {
                   ))}
                 </div>
               </PopoverGroup>
+
+              {/* Right side: Icons and Avatar */}
+              <div className="flex items-center space-x-4">
+                {/* Search Icon */}
+                <button
+                  type="button"
+                  className="p-2 text-gray-600 hover:text-gray-900"
+                >
+                  <MagnifyingGlassIcon className="h-6 w-6" />
+                </button>
+
+                {/* Cart Icon */}
+                <button
+                  type="button"
+                  className="p-2 text-gray-600 hover:text-gray-900"
+                >
+                  <ShoppingBagIcon className="h-6 w-6" />
+                </button>
+
+                {/* Avatar with Dropdown Menu */}
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center space-x-2 p-2 text-gray-600 hover:text-gray-900">
+                    <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white">
+                      R
+                    </div>
+                  </Menu.Button>
+                  <Menu.Items className="absolute right-0 w-48 mt-2 origin-top-right bg-white border border-gray-200 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="p-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <button
+                            onClick={() => navigate("/account/order")}
+                            className={`block w-full px-4 py-2 text-sm ${
+                              active ? "bg-gray-100" : ""
+                            } text-gray-700`}
+                          >
+                            My Orders
+                          </button>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <button
+                            onClick={() => navigate("/profile")}
+                            className={`block w-full px-4 py-2 text-sm ${
+                              active ? "bg-gray-100" : ""
+                            } text-gray-700`}
+                          >
+                            My Profile
+                          </button>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <button
+                            onClick={() => navigate("/logout")}
+                            className={`block w-full px-4 py-2 text-sm ${
+                              active ? "bg-gray-100" : ""
+                            } text-gray-700`}
+                          >
+                            Logout
+                          </button>
+                        )}
+                      </Menu.Item>
+                    </div>
+                  </Menu.Items>
+                </Menu>
+              </div>
             </div>
           </div>
         </nav>
