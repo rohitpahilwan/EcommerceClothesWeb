@@ -23,7 +23,7 @@ const ProductReviewCard = () => {
             </div>
           </div>
           <div className="space-y-2 flex justify-start">
-            <Rating value={4.5} name="half-rating" />
+            <Rating value={4.5} name="half-rating" readOnly precision={0.5} />
           </div>
           <p className="space-y-2 flex justify-start">
             Very Good Product, I Love This Shirt

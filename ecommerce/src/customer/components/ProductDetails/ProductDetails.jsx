@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { StarIcon } from "@heroicons/react/20/solid";
+
 import { Button, Radio, RadioGroup } from "@headlessui/react";
-import { Grid, Rating } from "@mui/material";
+import { Box, Grid, LinearProgress, Rating } from "@mui/material";
 import ProductReviewCard from "./ProductReviewCard";
+import MensKurta from "../../../Data/MensKurta";
+import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -64,7 +66,7 @@ export default function ProductDetails() {
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white lg:px-20">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol
@@ -214,7 +216,7 @@ export default function ProductDetails() {
                   </fieldset>
                 </div>
                 <div className="mt-10 ">
-                  <button className="bg-violet-500 hover:bg-green-600 text-white font-bold py-2 px-2 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 px-2rem py-1rem">
+                  <button className="bg-green-500 hover:bg-violet-600 text-white font-bold py-2 px-2 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 px-2rem py-1rem">
                     Add To Cart
                   </button>
                 </div>
@@ -264,14 +266,113 @@ export default function ProductDetails() {
           <h1 className="font-semibold text-lg pb-4">
             Recent Review & Ratings
           </h1>
-          <div className="border p-5">
+          <div className="border p-8">
             <Grid container spacing={7}>
-              <Grid item xs={7}>
+              <Grid item xs={5}>
                 <div className="space-y-5">
-                  <ProductReviewCard />
+                  {[1, 1, 1, 1].map((item) => (
+                    <ProductReviewCard />
+                  ))}
                 </div>
               </Grid>
+              <Grid item xs={5}>
+                <h1 className=" text-xl font-semibold pb-2">Product Ratings</h1>
+                <div class>
+                  <Rating
+                    name="read-only"
+                    value={4.7}
+                    precision={0.5}
+                    readOnly
+                  ></Rating>
+                  <p className="opacity-60">9552 Ratings</p>
+                </div>
+                <Box className="mt-5 space-y-3">
+                  <Grid container alignItems="center" gap={2}>
+                    <Grid item xs={2}>
+                      Excellent
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={70}
+                        color="success"
+                      />
+                    </Grid>
+                  </Grid>
+                </Box>
+                <Box className="mt-5 space-y-3">
+                  <Grid container alignItems="center" gap={2}>
+                    <Grid item xs={2}>
+                      Very Good
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={50}
+                        color="success"
+                      />
+                    </Grid>
+                  </Grid>
+                </Box>
+                <Box className="mt-5">
+                  <Grid container alignItems="center" gap={2}>
+                    <Grid item xs={2}>
+                      Good
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={40}
+                        color="warning"
+                      />
+                    </Grid>
+                  </Grid>
+                </Box>
+                <Box className="mt-5">
+                  <Grid container alignItems="center" gap={2}>
+                    <Grid item xs={2}>
+                      Average
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={25}
+                        color="warning"
+                      />
+                    </Grid>
+                  </Grid>
+                </Box>
+                <Box className="mt-5">
+                  <Grid container alignItems="center" gap={2}>
+                    <Grid item xs={2}>
+                      Poor
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={15}
+                        color="error"
+                      />
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Grid>
             </Grid>
+          </div>
+        </section>
+
+        {/* Similar Products */}
+        <section>
+          <h1 className=" font-bold py-5">Similar Products</h1>
+          <div className="flex flex-wrap space-y-5">
+            {MensKurta.map((items) => (
+              <HomeSectionCard product={items} />
+            ))}
           </div>
         </section>
       </div>
