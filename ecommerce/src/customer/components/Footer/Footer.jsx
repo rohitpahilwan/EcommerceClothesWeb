@@ -1,62 +1,19 @@
-import { Button, Typography } from "@mui/material";
-import React from "react";
-import Grid from "@mui/material/Grid";
+import { Grid, Link, Typography } from "@mui/material";
 
 const Footer = () => {
   return (
-    <div class="w-full bg-gray-800 text-white p-4">
-      <Grid
-        container
-        sx={{ bgcolor: "black", color: "white", py: 3, p: 0 }}
-        alignItems="center"
-        justifyContent="center"
-        spacing={2}
-        className="footer-container   "
-      >
-        <Grid item xs={12} textAlign="center">
-          <Typography className="pb-5" variant="h6">
-            Company
-          </Typography>
-          <Grid container spacing={1} justifyContent="center">
-            <Grid item>
-              <Button className="pb-5" variant="contained" color="secondary">
-                About
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button className="pb-5" variant="contained" color="secondary">
-                Blog
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button className="pb-5" variant="contained" color="secondary">
-                Press
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button className="pb-5" variant="contained" color="secondary">
-                Jobs
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button className="pb-5" variant="contained" color="secondary">
-                Partners
-              </Button>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          alignItems="center"
-          justifyContent="center"
-          sx={{ bgcolor: "black", color: "white", py: 3 }}
-        >
-          <Typography variant="body2" textAlign="center">
-            &copy;2024 ClothesShop. All Rights Reserved. Made with Love by Me
-          </Typography>
-        </Grid>
+    <Grid
+      className="bg-black text-white mt-4 text-center"
+      container
+      color={"white"}
+      sx={{ bgcolor: "black", color: "white" }}
+    >
+      <Grid className="pt-4 pb-4" item xs={12}>
+        <Typography variant="body2" component="p" align="center">
+          &copy; WardrobeWave: Your Digital Fashion Store
+        </Typography>
       </Grid>
-    </div>
+    </Grid>
   );
 };
 
