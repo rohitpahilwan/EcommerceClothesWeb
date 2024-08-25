@@ -6,6 +6,7 @@ const OrderPlaced = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const orderId = searchParams.get("order_id");
+  var x = 1;
 
   return (
     <div className="container mx-auto px-4 py-10">
@@ -28,7 +29,9 @@ const OrderPlaced = () => {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => (window.location.href = "/account/holder")}
+          onClick={() => (
+            (window.location.href = `/account/order/${x}`), (x = x + 1)
+          )}
           sx={{ marginTop: 2 }}
         >
           Go To My Orders

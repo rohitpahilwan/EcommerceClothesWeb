@@ -32,37 +32,6 @@ const OrderDetails = () => {
           <AddressCard address={order.order?.shippingAddress} />
         </Grid>
       </Grid>
-      <Box className="p-5 shadow-lg border rounded-md">
-        <Grid
-          container
-          sx={{ justifyContent: "space-between", alignItems: "center" }}
-        >
-          <Grid item xs={9}>
-            <OrderTraker
-              activeStep={
-                order.order?.orderStatus === "PLACED"
-                  ? 1
-                  : order.order?.orderStatus === "CONFIRMED"
-                  ? 2
-                  : order.order?.orderStatus === "SHIPPED"
-                  ? 3
-                  : 5
-              }
-            />
-          </Grid>
-          <Grid item>
-           {order.order?.orderStatus==="DELIVERED" && <Button sx={{ color: ""}} color="error" variant="text" >
-              RETURN
-            </Button>}
-
-            {order.order?.orderStatus!=="DELIVERED" && <Button sx={{ color: deepPurple[500] }} variant="text">
-              cancel order
-            </Button>}
-          </Grid>
-        </Grid>
-      </Box>
-
-    
 
       <Grid container className="space-y-5">
         {order.order?.orderItems.map((item) => (
