@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.exception.UserException;
-import com.app.model.User;
+import com.app.entities.User;
 import com.app.service.UserService;
 
 @RestController

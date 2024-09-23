@@ -2,10 +2,7 @@ import React from "react";
 import HomeCarousel from "../customer/Components/Carousel/HomeCarousel";
 import { homeCarouselData } from "../customer/Components/Carousel/HomeCaroselData";
 import HomeProductSection from "../customer/Components/Home/HomeProductSection";
-import { sareePage1 } from "../Data/Saree/page1";
-import { dressPage1 } from "../Data/dress/page1";
-import { gounsPage1 } from "../Data/Gouns/gouns";
-import { kurtaPage1 } from "../Data/Kurta/kurta";
+
 import { mens_kurta } from "../Data/Men/men_kurta";
 
 const Homepage = () => {

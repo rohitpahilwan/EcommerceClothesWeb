@@ -13,8 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.app.exception.ProductException;
-import com.app.model.Category;
-import com.app.model.Product;
+import com.app.entities.Category;
+import com.app.entities.Product;
 import com.app.repository.CategoryRepository;
 import com.app.repository.ProductRepository;
 import com.app.dto.CreateProductRequest;

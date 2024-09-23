@@ -1,6 +1,6 @@
 package com.app.service;
 
-import com.app.model.OrderItem;
+import com.app.entities.OrderItem;
 
 public interface OrderItemService {
 	

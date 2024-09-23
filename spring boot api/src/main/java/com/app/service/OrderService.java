@@ -3,9 +3,9 @@ package com.app.service;
 import java.util.List;
 
 import com.app.exception.OrderException;
-import com.app.model.Address;
-import com.app.model.Order;
-import com.app.model.User;
+import com.app.entities.Address;
+import com.app.entities.Order;
+import com.app.entities.User;
 
 public interface OrderService {
 	
@@ -28,5 +28,6 @@ public interface OrderService {
 	public List<Order>getAllOrders();
 	
 	public void deleteOrder(Long orderId) throws OrderException;
-	
+
+	List<Order> findOrderByUserId(Long id);
 }

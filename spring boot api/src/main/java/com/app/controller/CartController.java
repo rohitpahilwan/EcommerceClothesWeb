@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.exception.ProductException;
 import com.app.exception.UserException;
-import com.app.model.Cart;
-import com.app.model.CartItem;
-import com.app.model.User;
+import com.app.entities.Cart;
+import com.app.entities.CartItem;
+import com.app.entities.User;
 import com.app.dto.AddItemRequest;
 import com.app.response.ApiResponse;
 import com.app.service.CartService;
@@ -55,7 +55,7 @@ public class CartController {
 		
 		return new ResponseEntity<>(item,HttpStatus.ACCEPTED);
 		
-	}
+	}   
 	
 
 }

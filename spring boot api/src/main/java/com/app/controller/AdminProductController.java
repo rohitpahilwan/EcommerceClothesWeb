@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.exception.ProductException;
-import com.app.model.Product;
+import com.app.entities.Product;
 import com.app.dto.CreateProductRequest;
 import com.app.response.ApiResponse;
 import com.app.service.ProductService;
@@ -41,9 +41,9 @@ public class AdminProductController {
 	@DeleteMapping("/{productId}/delete")
 	public ResponseEntity<ApiResponse> deleteProductHandler(@PathVariable Long productId) throws ProductException{
 		
-		System.out.println("dlete product controller .... ");
+		System.out.println("delete product controller .... ");
 		String msg=productService.deleteProduct(productId);
-		System.out.println("dlete product controller .... msg "+msg);
+		System.out.println("delete product controller .... msg "+msg);
 		ApiResponse res=new ApiResponse(msg,true);
 		
 		return new ResponseEntity<ApiResponse>(res,HttpStatus.ACCEPTED);

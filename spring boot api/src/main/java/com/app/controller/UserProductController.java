@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.exception.ProductException;
-import com.app.model.Product;
+import com.app.entities.Product;
 import com.app.service.ProductService;
 
 @RestController
@@ -39,8 +39,8 @@ public class UserProductController {
 		return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
 		
 	}
-	
 
+//	http://localhost:8080/api/products?color=&category=mens_kurta&size&minPrice=0&maxPrice=399&minDiscount=0&sort=price_high&stock=null&pageNumber=0&pageSize=10
 	
 	@GetMapping("/products/id/{productId}")
 	public ResponseEntity<Product> findProductByIdHandler(@PathVariable Long productId) throws ProductException{

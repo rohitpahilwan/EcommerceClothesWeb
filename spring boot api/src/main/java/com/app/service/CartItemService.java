@@ -2,9 +2,9 @@ package com.app.service;
 
 import com.app.exception.CartItemException;
 import com.app.exception.UserException;
-import com.app.model.Cart;
-import com.app.model.CartItem;
-import com.app.model.Product;
+import com.app.entities.Cart;
+import com.app.entities.CartItem;
+import com.app.entities.Product;
 
 public interface CartItemService {
 	

@@ -15,6 +15,7 @@ public class ECommerceApplication {
 		SpringApplication.run(ECommerceApplication.class, args);
 		System.out.println("WardrobeWave:  \n" +
 				"Your Digital Fashion Store");
+
 	}
 
 }

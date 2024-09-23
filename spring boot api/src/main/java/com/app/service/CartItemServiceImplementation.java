@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.app.exception.CartItemException;
 import com.app.exception.UserException;
-import com.app.model.Cart;
-import com.app.model.CartItem;
-import com.app.model.Product;
-import com.app.model.User;
+import com.app.entities.Cart;
+import com.app.entities.CartItem;
+import com.app.entities.Product;
+import com.app.entities.User;
 import com.app.repository.CartItemRepository;
 import com.app.repository.CartRepository;
 

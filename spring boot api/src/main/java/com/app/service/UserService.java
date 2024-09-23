@@ -3,7 +3,7 @@ package com.app.service;
 import java.util.List;
 
 import com.app.exception.UserException;
-import com.app.model.User;
+import com.app.entities.User;
 
 public interface UserService {
 	

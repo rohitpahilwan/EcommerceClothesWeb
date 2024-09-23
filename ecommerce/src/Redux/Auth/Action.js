@@ -49,6 +49,7 @@ export const login = (userData) => async (dispatch) => {
     console.log("login ", user);
     dispatch(loginSuccess(user));
   } catch (error) {
+    alert("Invalid Username or password");
     dispatch(loginFailure(error.message));
   }
 };

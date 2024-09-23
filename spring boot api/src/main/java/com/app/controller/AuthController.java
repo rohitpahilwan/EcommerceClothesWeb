@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.config.JwtTokenProvider;
 import com.app.exception.UserException;
-import com.app.model.User;
+import com.app.entities.User;
 import com.app.repository.UserRepository;
 import com.app.dto.LoginRequest;
 import com.app.response.AuthResponse;
@@ -57,8 +57,8 @@ public class AuthController {
 	        User isEmailExist=userRepository.findByEmail(email);
 
 	        // Check if user with the given email already exists
-	        if (isEmailExist!=null) {
-	        	
+	        if (isEmailExist!=null)
+			{
 	            throw new UserException("Email Is Already Used With Another Account");
 	        }
 
@@ -97,7 +97,6 @@ public class AuthController {
         Authentication authentication = authenticate(username, password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         
-        
         String token = jwtTokenProvider.generateToken(authentication);
         AuthResponse authResponse= new AuthResponse();
 		
@@ -114,11 +113,11 @@ public class AuthController {
         
         if (userDetails == null) {
         	System.out.println("sign in userDetails - null " + userDetails);
-            throw new BadCredentialsException("Invalid username or password");
+            throw new BadCredentialsException("Invalid username");
         }
         if (!passwordEncoder.matches(password, userDetails.getPassword())) {
         	System.out.println("sign in userDetails - password not match " + userDetails);
-            throw new BadCredentialsException("Invalid username or password");
+            throw new BadCredentialsException("Invalid  password");
         }
         return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }

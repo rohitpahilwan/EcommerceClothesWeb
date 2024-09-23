@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.exception.CartItemException;
 import com.app.exception.UserException;
-import com.app.model.CartItem;
-import com.app.model.User;
+import com.app.entities.CartItem;
+import com.app.entities.User;
 import com.app.response.ApiResponse;
 import com.app.service.CartItemService;
 import com.app.service.UserService;
@@ -39,7 +39,7 @@ public class CartItemController {
 		User user=userService.findUserProfileByJwt(jwt);
 		cartItemService.removeCartItem(user.getId(), cartItemId);
 		
-		ApiResponse res=new ApiResponse("Item Remove From Cart",true);
+		ApiResponse res=new ApiResponse("Item Removed From Cart",true);
 		
 		return new ResponseEntity<ApiResponse>(res,HttpStatus.ACCEPTED);
 	}
@@ -51,7 +51,7 @@ public class CartItemController {
 		
 		CartItem updatedCartItem =cartItemService.updateCartItem(user.getId(), cartItemId, cartItem);
 		
-		//ApiResponse res=new ApiResponse("Item Updated",true);
+		ApiResponse res=new ApiResponse("Item Updated",true);
 		
 		return new ResponseEntity<>(updatedCartItem,HttpStatus.ACCEPTED);
 	}

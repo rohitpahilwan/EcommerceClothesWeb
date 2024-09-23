@@ -2,7 +2,7 @@ package com.app.service;
 
 import org.springframework.stereotype.Service;
 
-import com.app.model.OrderItem;
+import com.app.entities.OrderItem;
 import com.app.repository.OrderItemRepository;
 
 @Service

@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.app.model.User;
+import com.app.entities.User;
 import com.app.repository.UserRepository;
 
 @Service
@@ -27,8 +27,8 @@ public class CustomUserDetails implements UserDetailsService {
 		
 		User user = userRepository.findByEmail(username);
 		
-		if(user == null) {
-			throw new UsernameNotFoundException("user not found with email "+username);
+		if(user == null) { 
+			throw new UsernameNotFoundException("Invalid Email!!!    ->["+username+"]");
 		}
 		
 		List<GrantedAuthority> authorities = new ArrayList<>();

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.exception.OrderException;
-import com.app.model.Order;
+import com.app.entities.Order;
 import com.app.response.ApiResponse;
 import com.app.service.OrderService;
 

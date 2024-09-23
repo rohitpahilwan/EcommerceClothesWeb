@@ -34,6 +34,5 @@ public class AddItemRequest {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-	
-	
+
 }

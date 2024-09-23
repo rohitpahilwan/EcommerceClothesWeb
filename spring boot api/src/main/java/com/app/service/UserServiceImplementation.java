@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.config.JwtTokenProvider;
 import com.app.exception.UserException;
-import com.app.model.User;
+import com.app.entities.User;
 import com.app.repository.UserRepository;
 
 @Service

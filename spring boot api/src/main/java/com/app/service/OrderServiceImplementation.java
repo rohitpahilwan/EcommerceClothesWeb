@@ -8,12 +8,12 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.app.exception.OrderException;
-import com.app.model.Address;
-import com.app.model.Cart;
-import com.app.model.CartItem;
-import com.app.model.Order;
-import com.app.model.OrderItem;
-import com.app.model.User;
+import com.app.entities.Address;
+import com.app.entities.Cart;
+import com.app.entities.CartItem;
+import com.app.entities.Order;
+import com.app.entities.OrderItem;
+import com.app.entities.User;
 import com.app.repository.AddressRepository;
 import com.app.repository.OrderItemRepository;
 import com.app.repository.OrderRepository;
@@ -54,7 +54,7 @@ public class OrderServiceImplementation implements OrderService {
 		
 		for(CartItem item: cart.getCartItems()) {
 			OrderItem orderItem=new OrderItem();
-			
+
 			orderItem.setPrice(item.getPrice());
 			orderItem.setProduct(item.getProduct());
 			orderItem.setQuantity(item.getQuantity());
@@ -79,7 +79,7 @@ public class OrderServiceImplementation implements OrderService {
 		
 		createdOrder.setShippingAddress(address);
 		createdOrder.setOrderDate(LocalDateTime.now());
-		createdOrder.setOrderStatus(OrderStatus.PENDING);
+		createdOrder.setOrderStatus(OrderStatus.PLACED);
 		createdOrder.setCreatedAt(LocalDateTime.now());
 		
 		Order savedOrder=orderRepository.save(createdOrder);
@@ -158,6 +158,11 @@ public class OrderServiceImplementation implements OrderService {
 		
 		orderRepository.deleteById(orderId);
 		
+	}
+
+	@Override
+	public List<Order> findOrderByUserId(Long id) {
+		return  orderRepository.findOrderByUserId(id);
 	}
 
 }

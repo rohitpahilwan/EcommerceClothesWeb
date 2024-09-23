@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 
 import com.app.exception.ProductException;
-import com.app.model.Product;
+import com.app.entities.Product;
 import com.app.dto.CreateProductRequest;
 
 public interface ProductService {

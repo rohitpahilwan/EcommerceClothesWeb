@@ -3,10 +3,10 @@ package com.app.service;
 import org.springframework.stereotype.Service;
 
 import com.app.exception.ProductException;
-import com.app.model.Cart;
-import com.app.model.CartItem;
-import com.app.model.Product;
-import com.app.model.User;
+import com.app.entities.Cart;
+import com.app.entities.CartItem;
+import com.app.entities.Product;
+import com.app.entities.User;
 import com.app.repository.CartRepository;
 import com.app.dto.AddItemRequest;
 
